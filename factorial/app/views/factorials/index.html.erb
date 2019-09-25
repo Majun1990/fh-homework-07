@@ -1,0 +1,11 @@
+<h1>Welcome to Factorials</h1>
+
+<h2>What is a factorial?</h2>
+<p>Factorial is a multiple of a series of descending numbers, i.e.</p>
+<p>4! = 4 * 3 * 2 * 1 = 24</p>
+
+<h2>Please enter a number you want to be factored</h2>
+
+<%= form_with @factorial %>
+  <%= f.text_field :number %>
+  <%= f.submit "Submit" %>
