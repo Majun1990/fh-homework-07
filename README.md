@@ -1,133 +1,75 @@
-# Homework 7 - Coding Challenges Part 2
+# <Project Name>
 
-## Due Date
+<Project Description>
 
-TBD
+This app powers <Project Name> located [here](Heroku Project URL)
 
-## Goals
+## Getting Started
 
-- The purpose of this homework assignment is to solve 2 coding challenges using
-  the Ruby Programming Language.  This will help you get comfortable with your
-  problem solving abilities.
+## Software requirements
 
-## Readings and Resources
+- Rails 5.0.0 or higher
 
-'Solving Problems Breaking It Down' by John Sonmez - https://simpleprogrammer.com/2011/01/08/solving-problems-breaking-it-down
+- Ruby 2.3.1 or higher
 
-'Recursion Revealed!' by Charlie Brooke O'Hara - https://medium.com/@charlie.b.ohara/recursion-revealed-f8543e4dad1c
+- PostgreSQL 9.5.x or higher
 
-'Ruby Docs' - http://www.ruby-lang.org/en/documentation/
+## Navigate to the Rails application
 
-'Rails Guides' - http://guides.rubyonrails.org/index.html
+```
+$ cd /path/to/rails/application
+```
 
-## Coding Task 1:  String Rewriting
+## Set configuration files
 
-- Write a function which takes a string of alpha characters and rewrites the
-  given input string in an optimized format.  For example,
+```
+$ cp config/database.yml.template config/database.yml
+$ cp config/initializers/mail.rb.template config/initializers/mail.rb
+```
 
-  ```
-  >> challenge = Challenge3.new("aaabbbccaadd")
-  >> challenge.rewrite
-  => "3a3b2c2a2d"
+Note:  You may need to edit the above files as necessary for your system.
 
-  >> challenge = Challenge3.new("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaazzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz")
-  >> challenge.rewrite
-  => "97a122z97a122z97a122z97a122z97a"
-  ```
+## Create the database
 
-  In order to complete this challenge, all specs must pass and you can run them
-  by doing the following:
+ ```
+ $ pgstart
+ $ rake db:create
+ ```
 
-  ```
-  $ unzip homework-07.zip
-  $ cp /path/to/homework-07/challenge3
-  $ rspec
-  ```
+## Migrating and seeding the database
 
-  The expected output is as follows:
+```
+$ rake db:migrate
+$ rake db:seed
+```
 
-  ```
-  ...
+## Starting the local server
 
-  Finished in 0.00194 seconds (files took 0.10175 seconds to load)
-  3 examples, 0 failures
-  ```
+```
+$ rails server
 
-  Note: You are not to use regular expressions to complete this challenge.
+   or
 
-## Coding Task 2:  Factorial
+$ rails s
+```
 
-- Writing a function that computes the factorial of a positive integer greater than
-  or equal to zero using recursion.  A recursive function is a function which calls
-  itself.  Furthermore, a recursive function is one which has two cases:
-
-  - a base case which should terminate execution and return a result
-
-  - a recursive case which should call itself with a different set of
-    arguments
+## Production Deployment
 
   ```
-  >> Challenge4.factorial(0)
-  => 1
-
-  >> Challenge4.factorial(1)
-  => 1
-
-  >> Challenge4.factorial(50)
-  => 30414093201713378043612608166064768844377641568960512000000000000
+  $ git push heroku master
+  $ heroku run rake db:migrate
   ```
 
-  In order to complete this challenge, all specs must pass and you can run them
-  by doing the following:
+## Support
 
-  ```
-  $ cp /path/to/homework-07/challenge4
-  $ rspec
-  ```
+Bug reports and feature requests can be filed with the rest for the Ruby on Rails project here:
 
-  The expected output is as follows:
+* [File Bug Reports and Features](https://github.com/<user-name>/<project-repo>/issues)
 
-  ```
-  ...
+## License
 
-  Finished in 0.00144 seconds (files took 0.12384 seconds to load)
-  3 examples, 0 failures
-  ```
+<Project Name> is released under the [MIT license](https://mit-license.org).
 
-  Note:  You are not to use any loop structures which include each, for, while,
-         and so on.
+## Copyright
 
-## Coding Task 3:  Incorporating challenge 1 or 2 into a Rails application
-
-  - Write a Rails application which incorporates your answer to challenge 1 or  
-    2.  For example,
-
-    - using challenge 1
-
-      - enter valid input
-        - all other inputs should generate a warning message
-      - save it the the database (do not insert duplicates)
-        - value of the input and result of the computation should be stored
-      - display the result in the browser
-
-    - using challenge 2
-
-      - enter valid input
-        - invalid inputs should generate a warning message
-        - inputs too large should generate a warning message
-      - save valid input and responses to the the database
-        (do not insert duplicates)
-        - value of the input and result of the computation should be stored
-      - display the result in the browser
-
-    Note: Please feel free to come up with your own idea which incorporates
-          your solution and the above is just an example.
-
-## Deliverables
-
-- Please create a repo called `homework-07` on Github.com and push your
-  finished work there.
-
-## Have Questions
-
-Please make a reasonable effort to complete the homework prior to our next session.  If you have any questions regarding this homework, please do send me a message via Slack.
+copyright:: (c) Copyright 2018 <First Name> <Last Name>. All Rights Reserved.

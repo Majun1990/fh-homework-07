@@ -2,10 +2,23 @@ class Challenge3
   attr_reader :input_string
 
   def initialize(input_string)
-    # write your code here    
+    @input_string = input_string
   end
 
   def rewrite
-    # write your code here
+    stack = []
+    count = 0
+    string = []
+    @input_string.each do |string|
+      if string == string.last
+        count +=1
+      else
+        puts count
+        puts string
+        stack << count
+        stack << string
+      end
+    end
+    puts stack
   end
 end
