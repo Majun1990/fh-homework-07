@@ -1,5 +1,6 @@
 class Challenge3
   attr_reader :input_string
+  include Enumerable
 
   def initialize(input_string)
     @input_string = input_string
@@ -9,7 +10,11 @@ class Challenge3
     stack = []
     count = 0
     string = []
-    @input_string.each do |string|
+    @input_string = []
+    @input_string << input_string
+
+    @input_string.each do|string|
+      string.to_a
       if string == string.last
         count +=1
       else
