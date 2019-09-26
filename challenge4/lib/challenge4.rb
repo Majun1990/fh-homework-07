@@ -6,7 +6,7 @@ class Challenge4
   private
 
   def self._factorial(number, value)
-    return 1 unless number > 0
-    value = number*factorial(number-1)
+    return value if number == 1 || number == 0
+    _factorial(number-1,value*number)
   end
 end

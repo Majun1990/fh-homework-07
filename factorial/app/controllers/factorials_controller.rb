@@ -1,15 +1,16 @@
 class FactorialsController < ApplicationController
+
     def index
-        
+        @factor = Factor.new
     end
 
     def new
-        @factorial = Factorial.new
+        @factor = Factor.new
     end
 
     def create
-        @factorial = Factorial.create(factorial_params)
-        if @factorial.valid?
+        @factor = Factor.create(factor_params)
+        if @factor.valid?
             redirect_to root_path
         else
             render :new, status: :unprocessable_entity
@@ -17,11 +18,11 @@ class FactorialsController < ApplicationController
     end
 
     def show
-        @factorial = Factorial.find(params[:id])
+        @factor = Factor.find(params[:id])
     end
 
     private
-    def factorial_params
-       params.require(:factorial).permit(:number)         
+    def factor_params
+       params.require(:factor).permit(:input, :result)         
     end
 end

@@ -6,6 +6,7 @@
 
 <h2>Please enter a number you want to be factored</h2>
 
-<%= form_with @factorial %>
-  <%= f.text_field :number %>
+<%= form_for @factor do |f| %>
+  <%= f.number_field :input %>
   <%= f.submit "Submit" %>
+<% end %>
